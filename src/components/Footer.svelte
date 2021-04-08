@@ -3,13 +3,15 @@
 
     let date = new Date();
     let year = date.getFullYear();
+
+    let { facebook, instagram, twitter, github } = config.school.socials;
 </script>
 
 <footer class="bg-gray-800 text-gray-300 px-6 lg:px-8 py-12">
     <div class="max-w-screen-xl mx-auto flex flex-col items-center">
         <div class="flex items-center space-x-2">
             <a
-                href="https://www.facebook.com/{config.school.socials.facebook}"
+                href="https://www.facebook.com/{facebook}"
                 target="_blank"
                 class="hover:text-gray-100"
             >
@@ -28,8 +30,7 @@
                 </svg>
             </a>
             <a
-                href="https://www.instagram.com/{config.school.socials
-                    .instagram}"
+                href="https://www.instagram.com/{instagram}"
                 target="_blank"
                 class="hover:text-gray-100"
             >
@@ -48,7 +49,7 @@
                 </svg>
             </a>
             <a
-                href="https://www.twitter.com/{config.school.socials.twitter}"
+                href="https://www.twitter.com/{twitter}"
                 target="_blank"
                 class="hover:text-gray-100"
             >
@@ -65,7 +66,7 @@
                 </svg>
             </a>
             <a
-                href="https://github.com/{config.school.socials.github}"
+                href="https://github.com/{github}"
                 target="_blank"
                 class="hover:text-gray-100"
             >
@@ -91,7 +92,7 @@
             &copy; {year}
             {config.school.name}.
             <br />
-            All rights reserved.
+            All Rights Reserved.
         </div>
     </div>
 </footer>

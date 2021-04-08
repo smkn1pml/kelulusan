@@ -3,7 +3,7 @@
 
     let date = new Date();
     let year = date.getFullYear();
-    let school_year = year - 1 + "/" + year;
+    let schoolYear = year - 1 + "/" + year;
 
     export let status;
     export let un;
@@ -27,7 +27,7 @@
                     Anda dinyatakan <span class="font-extrabold">{status}</span>
                 </h3>
                 <p class="mt-1 max-w-2xl text-sm text-gray-900">
-                    Satuan pendidikan {config.school.name} tahun pelajaran {school_year}.
+                    Satuan pendidikan {config.school.name} tahun pelajaran {schoolYear}.
                 </p>
             </div>
             <div class="border-t border-gray-200">

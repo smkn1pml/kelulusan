@@ -2,8 +2,8 @@
     import { url, metatags } from "@roxi/routify";
     import config from "./../../config.js";
 
-    let school_name = config.school.name;
-    $: metatags.title = "Page Not Found - " + school_name;
+    let schoolName = config.school.name;
+    $: metatags.title = "Page Not Found - " + schoolName;
 </script>
 
 <main class="mb-auto">

@@ -9,31 +9,41 @@
     import Footer from "./../components/Footer.svelte";
     import Spinner from "./../components/Spinner.svelte";
 
-    let shown = "false";
+    $: showSpinner = false;
+
     $beforeUrlChange((event, store) => {
-        shown = "true";
+        showSpinner = true;
+
         return true;
     });
+
     if ($isChangingPage) {
-        shown = "true";
+        showSpinner = true;
     }
+
     $afterPageLoad((page) => {
         setTimeout(() => {
-            shown = "false";
-        }, 500);
+            showSpinner = false;
+        }, 250);
     });
-
-    $: show = shown;
 </script>
 
 <!-- routify:options preload="proximity" -->
 
-<Spinner {show} />
+<Spinner show={showSpinner} />
 
 <div class="flex flex-col h-screen justify-between">
     <Navbar />
 
-    <slot />
+    <div class="main-container">
+        <slot />
+    </div>
 
     <Footer />
 </div>
+
+<style>
+    .main-container {
+        margin-top: 64px;
+    }
+</style>

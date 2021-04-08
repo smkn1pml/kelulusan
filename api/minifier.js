@@ -29,8 +29,7 @@ function minify(directory, extension) {
                 removeOptionalTags: true,
                 removeRedundantAttributes: true,
                 removeScriptTypeAttributes: true,
-                removeTagWhitespace: true,
-                useShortDoctype: true
+                removeTagWhitespace: true
             })
 
             fs.writeFileSync(filename, result, { encoding: 'utf-8' })

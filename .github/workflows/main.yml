@@ -1,0 +1,38 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Installing Node.js ⛽
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install and Build 🔧
+        run: |
+          npm install
+          npm run build
+
+      - name: Generating File 404
+        run: |
+          cp dist/404/index.html dist/404.html
+          rm -rf dist/404
+
+      - name: Brotli Compress 🗜️
+        id: brotli
+        uses: charlesworth/compress-action@1.0
+        with:
+          target-directory: "dist"
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: dist

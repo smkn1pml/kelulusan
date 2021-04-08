@@ -1,0 +1,11 @@
+**/node_modules/
+**/.history
+
+dist/
+src/tmp/
+assets/build/
+
+.DS_Store
+.routify
+.netlify
+.vercel

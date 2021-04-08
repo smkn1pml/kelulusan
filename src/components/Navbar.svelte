@@ -3,9 +3,9 @@
     import config from "./../../config.js";
 
     let links = [
-        ["./index", "Beranda"],
-        ["./about", "Tentang"],
-        ["./contact", "Kontak"],
+        ["/index", "Beranda"],
+        ["/about", "Tentang"],
+        ["/contact", "Kontak"],
     ];
 
     const classToggle = (condition, yes, no) => {

@@ -37,6 +37,10 @@ jobs:
         with:
           target-directory: "build"
 
+      - name: Configure CNAME 🌐
+        run: |
+          echo "kelulusan.smkn1pml.sch.id" > CNAME
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:

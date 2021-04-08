@@ -20,7 +20,7 @@ jobs:
           npm install
           npm run build
 
-      - name: Generating File 404
+      - name: Generating File 404 ⚙️
         run: |
           cp dist/404/index.html dist/404.html
           rm -rf dist/404

@@ -1,3 +1,4 @@
+var homeUrl = 'https://kelulusan.smkn1pml.sch.id'
 var sheetName = 'Sheet1'
 var scriptProp = PropertiesService.getScriptProperties()
 
@@ -7,6 +8,12 @@ function initialSetup() {
 }
 
 function doGet(e) {
+    return HtmlService.createHtmlOutput(
+        "<script>window.top.location.href=\"" + homeUrl + "\";</script>"
+    )
+}
+
+function doPost(e) {
     try {
         var doc = SpreadsheetApp.openById(scriptProp.getProperty('key'))
         var sheet = doc.getSheetByName(sheetName)
@@ -24,7 +31,7 @@ function doGet(e) {
         var allData = sheet.getDataRange()
             .getValues()
 
-        var results = []
+        var data = []
         if (allData.length > 1) {
 
             var records = sheet.getRange(2, 1, (sheet.getLastRow() - 1), sheet.getLastColumn())
@@ -38,9 +45,25 @@ function doGet(e) {
                     oneData[headers[i]] = record[i]
                 }
 
-                results.push(oneData)
+                data.push(oneData)
             }
 
+        }
+
+        let param = e.parameter
+        let results = []
+
+        if (param && Object.keys(param).length > 0 && param.constructor === Object) {
+            results = data.filter(function (item) {
+                for (p in param) {
+                    if (item[p] === undefined || item[p] != param[p]) {
+                        return false
+                    }
+                    return true
+                }
+            })
+        } else {
+            results = data
         }
 
         return ContentService

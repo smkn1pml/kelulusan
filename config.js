@@ -16,5 +16,5 @@ module.exports = {
             github: "smkn1pml"
         }
     },
-    database: "https://script.google.com/macros/s/AKfycbwX31xNYmwN9O4mDFlZKX2mTWmpQIceL6MKOSsurMV9fnqfvh463ygg1uZy4VEAhzL6JA/exec"
+    database: "https://script.google.com/macros/s/AKfycbw6dZn8tLl64FruZbz7b9NMMm5yketRkLFsSdjNduP7P6JqRJ7KHvaewBkSRpT8w61skQ/exec"
 }

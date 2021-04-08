@@ -3,6 +3,7 @@
 
     let date = new Date();
     let year = date.getFullYear();
+    let school_year = year - 1 + "/" + year;
 </script>
 
 <div class="form-container max-w-5xl mx-auto py-6 sm:px-6 lg:px-8">
@@ -16,7 +17,7 @@
                     {school_name}
                 </h3>
                 <p class="mt-0 text-sm text-gray-600">
-                    Tahun Pelajaran {year - 1}/{year}
+                    Tahun Pelajaran {school_year}
                 </p>
             </div>
         </div>
@@ -58,7 +59,7 @@
 <style>
     .form-container {
         min-height: 390px;
-        height: calc(100vh - 64px - 156px);
+        height: calc(100vh - 64px - 176px);
         display: grid;
         place-content: center stretch;
     }

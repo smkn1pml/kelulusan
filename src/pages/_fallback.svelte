@@ -24,6 +24,6 @@
 
 <style>
     .not-found {
-        height: calc(100vh - 68px - 152px);
+        height: calc(100vh - 64px - 176px);
     }
 </style>

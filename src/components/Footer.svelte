@@ -1,5 +1,5 @@
 <script>
-    import data from "./../../config.js";
+    import config from "./../../config.js";
 
     let date = new Date();
     let year = date.getFullYear();
@@ -9,7 +9,7 @@
     <div class="max-w-screen-xl mx-auto flex flex-col items-center">
         <div class="flex items-center space-x-2">
             <a
-                href="https://www.facebook.com/smkn1pemalang"
+                href="https://www.facebook.com/{config.school.socials.facebook}"
                 target="_blank"
                 class="hover:text-gray-100"
             >
@@ -28,7 +28,8 @@
                 </svg>
             </a>
             <a
-                href="https://www.instagram.com/smkn1pml"
+                href="https://www.instagram.com/{config.school.socials
+                    .instagram}"
                 target="_blank"
                 class="hover:text-gray-100"
             >
@@ -47,7 +48,7 @@
                 </svg>
             </a>
             <a
-                href="https://www.twitter.com/smkn1pemalang"
+                href="https://www.twitter.com/{config.school.socials.twitter}"
                 target="_blank"
                 class="hover:text-gray-100"
             >
@@ -64,7 +65,7 @@
                 </svg>
             </a>
             <a
-                href="https://github.com/smkn1pml"
+                href="https://github.com/{config.school.socials.github}"
                 target="_blank"
                 class="hover:text-gray-100"
             >
@@ -88,7 +89,7 @@
         </div>
         <div class="text-sm mt-4 text-center">
             &copy; {year}
-            {data.school.name}.
+            {config.school.name}.
             <br />
             All rights reserved.
         </div>

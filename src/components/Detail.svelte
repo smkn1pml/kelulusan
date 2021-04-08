@@ -1,13 +1,33 @@
+<script>
+    import config from "./../../config";
+
+    let date = new Date();
+    let year = date.getFullYear();
+    let school_year = year - 1 + "/" + year;
+
+    export let status;
+    export let un;
+    export let nama;
+    export let nisn;
+    export let ttl;
+    export let ortu;
+    export let skl;
+    export let pk;
+</script>
+
 <div class="max-w-7xl mx-auto sm:py-12 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
-        <div class="bg-red-400 shadow overflow-hidden sm:rounded-lg">
+        <div
+            class="{status == 'LULUS'
+                ? 'bg-green-400'
+                : 'bg-red-400'} shadow overflow-hidden sm:rounded-lg"
+        >
             <div class="px-4 py-5 sm:px-6">
                 <h3 class="text-xl font-medium text-gray-900">
-                    Anda dinyatakan <span class="font-extrabold">TIDAK LULUS</span>
+                    Anda dinyatakan <span class="font-extrabold">{status}</span>
                 </h3>
                 <p class="mt-1 max-w-2xl text-sm text-gray-900">
-                    Satuan pendidikan SMK Negeri 1 Pemalang tahun pelajaran
-                    2019/2020.
+                    Satuan pendidikan {config.school.name} tahun pelajaran {school_year}.
                 </p>
             </div>
             <div class="border-t border-gray-200">
@@ -21,7 +41,7 @@
                         <dd
                             class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
                         >
-                            21703340420000
+                            {un}
                         </dd>
                     </div>
                     <div
@@ -33,7 +53,7 @@
                         <dd
                             class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
                         >
-                            Jubaedah Saha Anying
+                            {nama}
                         </dd>
                     </div>
                     <div
@@ -45,7 +65,7 @@
                         <dd
                             class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
                         >
-                            0021032400
+                            {nisn}
                         </dd>
                     </div>
                     <div
@@ -57,7 +77,7 @@
                         <dd
                             class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
                         >
-                            Pemalang, 22 Juni 2004
+                            {ttl}
                         </dd>
                     </div>
                     <div
@@ -69,7 +89,7 @@
                         <dd
                             class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
                         >
-                            Wahyudi Wibowo Wkwk
+                            {ortu}
                         </dd>
                     </div>
                     <div
@@ -108,7 +128,8 @@
                                     </div>
                                     <div class="ml-4 flex-shrink-0">
                                         <a
-                                            href="/"
+                                            target="_blank"
+                                            href={skl}
                                             class="font-medium text-indigo-600 hover:text-indigo-500"
                                         >
                                             Unduh
@@ -139,7 +160,8 @@
                                     </div>
                                     <div class="ml-4 flex-shrink-0">
                                         <a
-                                            href="/"
+                                            target="_blank"
+                                            href={pk}
                                             class="font-medium text-indigo-600 hover:text-indigo-500"
                                         >
                                             Unduh

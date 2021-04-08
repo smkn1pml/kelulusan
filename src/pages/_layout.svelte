@@ -14,7 +14,7 @@
         shown = "true";
         return true;
     });
-    if (isChangingPage) {
+    if ($isChangingPage) {
         shown = "true";
     }
     $afterPageLoad((page) => {

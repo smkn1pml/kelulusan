@@ -29,7 +29,7 @@ jobs:
         id: brotli
         uses: Charlesworth/compress-action@1.0.0
         with:
-          target-directory: kelulusan
+          target-directory: dist
 
       - name: Configure CNAME 🌐
         uses: finnp/create-file-action@master
@@ -41,4 +41,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
-          folder: kelulusan
+          folder: dist

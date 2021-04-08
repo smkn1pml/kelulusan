@@ -26,23 +26,25 @@ jobs:
           rm -rf dist/404
 
       - name: Minify build code ⚙️
-        uses: docker://devatherock/minify-js:latest
+        uses: zugazagoitia/minify-js@master
         with:
-          directory: "dist"
-          output: "build"
+          directory: dist
+          output: kelulusan
 
       - name: Brotli Compress 🗜️
         id: brotli
         uses: Charlesworth/compress-action@1.0.0
         with:
-          target-directory: "build"
+          target-directory: kelulusan
 
       - name: Configure CNAME 🌐
-        run: |
-          echo "kelulusan.smkn1pml.sch.id" > CNAME
+        uses: finnp/create-file-action@master
+        env:
+          FILE_NAME: "CNAME"
+          FILE_DATA: "kelulusan.smkn1pml.sch.id"
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
-          folder: build
+          folder: kelulusan

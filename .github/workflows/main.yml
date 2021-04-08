@@ -25,18 +25,6 @@ jobs:
           cp dist/404/index.html dist/404.html
           rm -rf dist/404
 
-      - name: Brotli Compress 🗜️
-        id: brotli
-        uses: Charlesworth/compress-action@1.0.0
-        with:
-          target-directory: dist
-
-      - name: Configure CNAME 🌐
-        uses: finnp/create-file-action@master
-        env:
-          FILE_NAME: "CNAME"
-          FILE_DATA: "kelulusan.smkn1pml.sch.id"
-
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:

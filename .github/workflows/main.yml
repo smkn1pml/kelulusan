@@ -25,14 +25,20 @@ jobs:
           cp dist/404/index.html dist/404.html
           rm -rf dist/404
 
+      - name: Minify build code ⚙️
+        uses: docker://devatherock/minify-js:latest
+        with:
+          directory: "dist"
+          output: "build"
+
       - name: Brotli Compress 🗜️
         id: brotli
         uses: Charlesworth/compress-action@1.0.0
         with:
-          target-directory: "dist"
+          target-directory: "build"
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
-          folder: dist
+          folder: build

@@ -21,10 +21,14 @@ const collect = async () => {
             throw data.error
         }
 
-        let file_path = path.join(__dirname, '/kelulusan.json')
         let results = JSON.stringify(data.data, null, 4)
+        let file_path = path.join(__dirname, '/data.json')
 
-        fs.writeFile(file_path, results, { flag: 'wx' }, (err) => {
+        if (fs.existsSync(file_path)) {
+            fs.unlinkSync(file_path)
+        }
+
+        fs.writeFileSync(file_path, results, { flag: 'wx' }, (err) => {
             if (err) throw err;
 
             console.log('It\'s saved!')

@@ -13,24 +13,36 @@
     export let ortu;
     export let skl;
     export let pk;
+
+    $: statusClass = "";
+    $: headerClass = "skeleton-box";
+    $: inviSiClass = "invisible";
+
+    $: if (status && un && nama && nisn && ttl && ortu && skl && pk) {
+        statusClass =
+            (status || "").toLowerCase() === "lulus"
+                ? "bg-green-400"
+                : "bg-red-400";
+
+        headerClass = "";
+        inviSiClass = "";
+    }
 </script>
 
 <div class="max-w-7xl mx-auto sm:py-12 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
-        <div
-            class="{status == 'LULUS'
-                ? 'bg-green-400'
-                : 'bg-red-400'} shadow overflow-hidden sm:rounded-lg"
-        >
-            <div class="px-4 py-5 sm:px-6">
-                <h3 class="text-xl font-medium text-gray-900">
-                    Anda dinyatakan <span class="font-extrabold">{status}</span>
+        <div class="{statusClass} shadow overflow-hidden sm:rounded-lg">
+            <div class="{headerClass} px-4 py-5 sm:px-6">
+                <h3 class="{inviSiClass} text-xl font-medium text-gray-900">
+                    Anda dinyatakan <span class="font-extrabold">
+                        {status ? status : ""}
+                    </span>
                 </h3>
-                <p class="mt-1 max-w-2xl text-sm text-gray-900">
-                    Satuan pendidikan {config.school.name} tahun pelajaran {schoolYear}.
+                <p class="{inviSiClass} mt-1 max-w-2xl text-sm text-gray-900">
+                    oleh satuan pendidikan {config.school.name} tahun pelajaran {schoolYear}.
                 </p>
             </div>
-            <div class="border-t border-gray-200">
+            <div>
                 <dl>
                     <div
                         class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
@@ -38,11 +50,17 @@
                         <dt class="text-sm font-medium text-gray-500">
                             Nomor Ujian Nasional
                         </dt>
-                        <dd
-                            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                        >
-                            {un}
-                        </dd>
+                        {#if un}
+                            <dd
+                                class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                            >
+                                {un}
+                            </dd>
+                        {:else}
+                            <dd
+                                class="mt-1 sm:mt-0 sm:col-span-2 skeleton-box inline-block h-5 w-1/2"
+                            />
+                        {/if}
                     </div>
                     <div
                         class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
@@ -50,11 +68,17 @@
                         <dt class="text-sm font-medium text-gray-500">
                             Nama Siswa
                         </dt>
-                        <dd
-                            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                        >
-                            {nama}
-                        </dd>
+                        {#if nama}
+                            <dd
+                                class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                            >
+                                {nama}
+                            </dd>
+                        {:else}
+                            <dd
+                                class="mt-1 sm:mt-0 sm:col-span-2 skeleton-box inline-block h-5 w-1/2"
+                            />
+                        {/if}
                     </div>
                     <div
                         class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
@@ -62,11 +86,17 @@
                         <dt class="text-sm font-medium text-gray-500">
                             NISN Siswa
                         </dt>
-                        <dd
-                            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                        >
-                            {nisn}
-                        </dd>
+                        {#if nisn}
+                            <dd
+                                class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                            >
+                                {nisn}
+                            </dd>
+                        {:else}
+                            <dd
+                                class="mt-1 sm:mt-0 sm:col-span-2 skeleton-box inline-block h-5 w-1/2"
+                            />
+                        {/if}
                     </div>
                     <div
                         class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
@@ -74,11 +104,17 @@
                         <dt class="text-sm font-medium text-gray-500">
                             Tempat, Tanggal Lahir
                         </dt>
-                        <dd
-                            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                        >
-                            {ttl}
-                        </dd>
+                        {#if ttl}
+                            <dd
+                                class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                            >
+                                {ttl}
+                            </dd>
+                        {:else}
+                            <dd
+                                class="mt-1 sm:mt-0 sm:col-span-2 skeleton-box inline-block h-5 w-1/2"
+                            />
+                        {/if}
                     </div>
                     <div
                         class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
@@ -86,11 +122,17 @@
                         <dt class="text-sm font-medium text-gray-500">
                             Nama Orang Tua
                         </dt>
-                        <dd
-                            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                        >
-                            {ortu}
-                        </dd>
+                        {#if ortu}
+                            <dd
+                                class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                            >
+                                {ortu}
+                            </dd>
+                        {:else}
+                            <dd
+                                class="mt-1 sm:mt-0 sm:col-span-2 skeleton-box inline-block h-5 w-1/2"
+                            />
+                        {/if}
                     </div>
                     <div
                         class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
@@ -104,70 +146,91 @@
                             <ul
                                 class="border border-gray-200 rounded-md divide-y divide-gray-200"
                             >
-                                <li
-                                    class="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
-                                >
-                                    <div class="w-0 flex-1 flex items-center">
-                                        <!-- Heroicon name: solid/paper-clip -->
-                                        <svg
-                                            class="flex-shrink-0 h-5 w-5 text-gray-400"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20"
-                                            fill="currentColor"
-                                            aria-hidden="true"
+                                {#if skl}
+                                    <li
+                                        class="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
+                                    >
+                                        <div
+                                            class="w-0 flex-1 flex items-center"
                                         >
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
-                                                clip-rule="evenodd"
-                                            />
-                                        </svg>
-                                        <span class="ml-2 flex-1 w-0 truncate">
-                                            Surat Keterangan Lulus
-                                        </span>
-                                    </div>
-                                    <div class="ml-4 flex-shrink-0">
-                                        <a
-                                            target="_blank"
-                                            href={skl}
-                                            class="font-medium text-indigo-600 hover:text-indigo-500"
+                                            <!-- Heroicon name: solid/paper-clip -->
+                                            <svg
+                                                class="flex-shrink-0 h-5 w-5 text-gray-400"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
+                                                    clip-rule="evenodd"
+                                                />
+                                            </svg>
+                                            <span
+                                                class="ml-2 flex-1 w-0 truncate"
+                                            >
+                                                Surat Keterangan Lulus
+                                            </span>
+                                        </div>
+                                        <div class="ml-4 flex-shrink-0">
+                                            <a
+                                                target="_blank"
+                                                href={skl}
+                                                class="font-medium text-indigo-600 hover:text-indigo-500"
+                                            >
+                                                Unduh
+                                            </a>
+                                        </div>
+                                    </li>
+                                {:else}
+                                    <li
+                                        class="flex items-center justify-between skeleton-box inline-block h-11 w-100"
+                                    />
+                                {/if}
+
+                                {#if pk}
+                                    <li
+                                        class="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
+                                    >
+                                        <div
+                                            class="w-0 flex-1 flex items-center"
                                         >
-                                            Unduh
-                                        </a>
-                                    </div>
-                                </li>
-                                <li
-                                    class="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
-                                >
-                                    <div class="w-0 flex-1 flex items-center">
-                                        <!-- Heroicon name: solid/paper-clip -->
-                                        <svg
-                                            class="flex-shrink-0 h-5 w-5 text-gray-400"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20"
-                                            fill="currentColor"
-                                            aria-hidden="true"
-                                        >
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
-                                                clip-rule="evenodd"
-                                            />
-                                        </svg>
-                                        <span class="ml-2 flex-1 w-0 truncate">
-                                            Pengumuman Kelulusan
-                                        </span>
-                                    </div>
-                                    <div class="ml-4 flex-shrink-0">
-                                        <a
-                                            target="_blank"
-                                            href={pk}
-                                            class="font-medium text-indigo-600 hover:text-indigo-500"
-                                        >
-                                            Unduh
-                                        </a>
-                                    </div>
-                                </li>
+                                            <!-- Heroicon name: solid/paper-clip -->
+                                            <svg
+                                                class="flex-shrink-0 h-5 w-5 text-gray-400"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20"
+                                                fill="currentColor"
+                                                aria-hidden="true"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
+                                                    clip-rule="evenodd"
+                                                />
+                                            </svg>
+                                            <span
+                                                class="ml-2 flex-1 w-0 truncate"
+                                            >
+                                                Pengumuman Kelulusan
+                                            </span>
+                                        </div>
+                                        <div class="ml-4 flex-shrink-0">
+                                            <a
+                                                target="_blank"
+                                                href={pk}
+                                                class="font-medium text-indigo-600 hover:text-indigo-500"
+                                            >
+                                                Unduh
+                                            </a>
+                                        </div>
+                                    </li>
+                                {:else}
+                                    <li
+                                        class="flex items-center justify-between skeleton-box inline-block h-11 w-100"
+                                    />
+                                {/if}
                             </ul>
                         </dd>
                     </div>

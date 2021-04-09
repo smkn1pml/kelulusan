@@ -2,6 +2,7 @@
     import { slide } from "svelte/transition";
     import { isActive, url, beforeUrlChange } from "@roxi/routify";
     import config from "./../../config.js";
+    import { clickOutside } from "./../clickOutside";
 
     let links = [
         ["/index", "Beranda"],
@@ -27,7 +28,11 @@
     });
 </script>
 
-<nav class="fixed w-full bg-gray-800">
+<nav
+    use:clickOutside
+    on:click_outside={() => (openMobileNav = false)}
+    class="fixed z-10 w-full bg-gray-800"
+>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <div class="flex items-center">

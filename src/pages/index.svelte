@@ -1,12 +1,11 @@
 <script>
-    import { metatags, beforeUrlChange } from "@roxi/routify";
+    import { metatags, goto } from "@roxi/routify";
     import axios from "axios";
     import FormData from "form-data";
     import config from "./../../config.js";
     import Alert from "./../components/Alert.svelte";
     import Spinner from "./../components/Spinner.svelte";
     import Form from "./../components/Form.svelte";
-    import Detail from "./../components/Detail.svelte";
 
     let schoolName = config.school.name;
     $: metatags.title = "Cek Kelulusan - " + schoolName;
@@ -15,13 +14,10 @@
     let errorTitle = "Terjadi Kesalahan";
     let notFound = "Tidak Ditemukan";
 
-    $: showDetail = false;
     $: showSpinner = false;
     $: showError = false;
     $: showNotFound = false;
     $: errorText = "";
-
-    $: detailData = {};
 
     function search() {
         if (nisn === undefined || nisn === null || (nisn || "").trim() === "") {
@@ -54,16 +50,16 @@
                     return;
                 }
 
-                if (!data.data.length) {
+                data = data.data;
+                if (!data.length) {
                     showNotFound = true;
 
                     showSpinner = false;
                     return;
                 }
 
-                detailData = data.data[0];
-                showDetail = true;
                 showSpinner = false;
+                $goto("/detail/?un=" + data[0].un);
             })
             .catch(function (error) {
                 console.error(error);
@@ -74,13 +70,6 @@
                 showSpinner = false;
             });
     }
-
-    $beforeUrlChange((event, store) => {
-        detailData = {};
-        showDetail = false;
-
-        return true;
-    });
 </script>
 
 <Alert bind:showAlert={showError} alertTitle={errorTitle}>
@@ -96,12 +85,5 @@
 <Spinner show={showSpinner} />
 
 <main class="mb-auto">
-    {#if showDetail}
-        <Detail {...detailData} />
-    {:else}
-        <Form bind:nisn on:submit={search} />
-    {/if}
+    <Form bind:nisn on:submit={search} />
 </main>
-
-<style>
-</style>

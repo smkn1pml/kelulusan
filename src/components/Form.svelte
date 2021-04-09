@@ -24,10 +24,10 @@
                 <h2 class="text-3xl font-extralight text-gray-900">
                     Pengumuman Kelulusan
                 </h2>
-                <h3 class="mt-0 text-xl font-medium text-gray-900">
+                <h3 class="mt-1 text-xl font-medium text-gray-900">
                     {schoolName}
                 </h3>
-                <p class="mt-0 text-sm text-gray-600">
+                <p class="mt-1 text-sm text-gray-600">
                     Tahun Pelajaran {schoolYear}
                 </p>
             </div>

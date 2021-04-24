@@ -14,7 +14,7 @@
     export let skl;
     export let pk;
 
-    $: statusClass =
+    let statusClass =
         (status || "").toLowerCase() === "lulus"
             ? "bg-green-400"
             : "bg-red-400";

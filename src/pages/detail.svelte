@@ -6,16 +6,27 @@
     import Alert from "./../components/Alert.svelte";
     import Fallback from "./_fallback.svelte";
 
-    import Show from "./../components/Detail/Show.svelte";
     import Skeleton from "./../components/Detail/Skeleton.svelte";
+    import Detail from "./../components/Detail/Show.svelte";
 
     let nisn = $params.nisn;
+    $: title = "Cek Kelulusan - " + config.school.name;
 
-    $: metatags.title;
+    $: metatags.title = title;
     $: skeletonDetail = true;
     $: showError = false;
     $: showDetail = true;
     $: detailData = {};
+
+    const capitalize = (words) => {
+        let separateWord = words.toLowerCase().split(" ");
+        for (let i = 0; i < separateWord.length; i++) {
+            separateWord[i] =
+                separateWord[i].charAt(0).toUpperCase() +
+                separateWord[i].substring(1);
+        }
+        return separateWord.join(" ");
+    };
 
     if (nisn) {
         let form = new FormData();
@@ -38,25 +49,13 @@
                     detailData = data.data[0];
                     showDetail = true;
 
-                    const capitalize = (words) => {
-                        let separateWord = words.toLowerCase().split(" ");
-                        for (let i in separateWord) {
-                            separateWord[i] =
-                                separateWord[i].charAt(0).toUpperCase() +
-                                separateWord[i].substring(1);
-                        }
-                        return separateWord.join(" ");
-                    };
-
-                    metatags.title =
+                    title =
                         capitalize(detailData.nama) +
                         " - " +
                         config.school.name;
                 } else showDetail = false;
             })
-            .catch(function (error) {
-                console.error(error);
-
+            .catch(function () {
                 skeletonDetail = false;
 
                 showError = true;
@@ -76,7 +75,7 @@
         {#if skeletonDetail}
             <Skeleton />
         {:else}
-            <Show {...detailData} />
+            <Detail {...detailData} />
         {/if}
     </main>
 {:else}

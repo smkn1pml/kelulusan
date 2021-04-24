@@ -20,7 +20,7 @@
 <div class="form-container max-w-5xl mx-auto py-6 sm:px-6 lg:px-8">
     <div class="md:grid md:grid-cols-5 md:gap-6">
         <div class="md:col-span-2">
-            <div class="px-4 sm:px-0">
+            <div class="px-4 sm:px-0 text-center sm:text-left">
                 <h2 class="text-3xl font-extralight text-gray-900">
                     Pengumuman Kelulusan
                 </h2>

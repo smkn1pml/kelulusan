@@ -5,18 +5,23 @@
     import config from "./../../config.js";
     import Alert from "./../components/Alert.svelte";
     import Fallback from "./_fallback.svelte";
-    import Detail from "./../components/Detail.svelte";
 
-    let un = $params.un;
+    import Show from "./../components/Detail/Show.svelte";
+    import Skeleton from "./../components/Detail/Skeleton.svelte";
+
+    let nisn = $params.nisn;
 
     $: metatags.title;
+    $: skeletonDetail = true;
     $: showError = false;
     $: showDetail = true;
     $: detailData = {};
 
-    if (un) {
+    if (nisn) {
         let form = new FormData();
-        form.append("un", un);
+        form.append("nisn", nisn);
+
+        skeletonDetail = true;
 
         axios
             .post(config.database, form, {
@@ -27,6 +32,8 @@
             .then(function (result) {
                 let { data } = result;
 
+                skeletonDetail = false;
+
                 if (data.data.length > 0) {
                     detailData = data.data[0];
                     showDetail = true;
@@ -34,6 +41,8 @@
             })
             .catch(function (error) {
                 console.error(error);
+
+                skeletonDetail = false;
 
                 showError = true;
                 detailData = {};
@@ -47,9 +56,13 @@
     masalah ini.
 </Alert>
 
-{#if showDetail}
+{#if nisn && showDetail}
     <main class="mb-auto">
-        <Detail {...detailData} />
+        {#if skeletonDetail}
+            <Skeleton />
+        {:else}
+            <Show {...detailData} />
+        {/if}
     </main>
 {:else}
     <Fallback />

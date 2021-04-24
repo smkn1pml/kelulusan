@@ -12,8 +12,7 @@ module.exports = {
         socials: {
             facebook: "smkn1pemalang",
             instagram: "smkn1pml",
-            twitter: "smkn1pemalang",
-            github: "smkn1pml"
+            twitter: "smkn1pemalang"
         }
     },
     database: "https://script.google.com/macros/s/AKfycbw6dZn8tLl64FruZbz7b9NMMm5yketRkLFsSdjNduP7P6JqRJ7KHvaewBkSRpT8w61skQ/exec"

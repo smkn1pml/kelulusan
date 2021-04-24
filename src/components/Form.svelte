@@ -50,8 +50,16 @@
                             id="student_number"
                             autocomplete="student-number"
                             placeholder="Masukkan NISN kamu"
-                            class="mt-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            class="mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                         />
+                        <p class="mt-4 text-sm text-gray-500">
+                            Jika tidak mengetahui Nomor Induk Siswa Nasional
+                            kamu, bisa lakukan pengecekan <a
+                                class="text-indigo-600 hover:text-indigo-500"
+                                href="https://nisn.data.kemdikbud.go.id/index.php/Cindex/caribynama/"
+                                target="_blank">di sini</a
+                            >.
+                        </p>
                     </div>
                 </div>
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">

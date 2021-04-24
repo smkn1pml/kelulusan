@@ -37,6 +37,21 @@
                 if (data.data.length > 0) {
                     detailData = data.data[0];
                     showDetail = true;
+
+                    const capitalize = (words) => {
+                        let separateWord = words.toLowerCase().split(" ");
+                        for (let i in separateWord) {
+                            separateWord[i] =
+                                separateWord[i].charAt(0).toUpperCase() +
+                                separateWord[i].substring(1);
+                        }
+                        return separateWord.join(" ");
+                    };
+
+                    metatags.title =
+                        capitalize(detailData.nama) +
+                        " - " +
+                        config.school.name;
                 } else showDetail = false;
             })
             .catch(function (error) {

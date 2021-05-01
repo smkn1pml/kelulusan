@@ -7,7 +7,7 @@
     let { facebook, instagram, twitter, github } = config.school.socials;
 </script>
 
-<footer class="bg-gray-800 text-gray-300 px-6 lg:px-8 py-12">
+<footer class="bg-gray-800 text-gray-300 px-6 lg:px-8 py-8">
     <div class="max-w-screen-xl mx-auto flex flex-col items-center">
         <div class="flex items-center space-x-2">
             <a

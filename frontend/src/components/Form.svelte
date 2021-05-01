@@ -78,7 +78,7 @@
 <style>
     .form-container {
         min-height: 390px;
-        height: calc(100vh - 64px - 176px);
+        height: calc(100vh - 64px - 144px);
         display: grid;
         place-content: center stretch;
     }

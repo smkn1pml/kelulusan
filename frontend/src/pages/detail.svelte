@@ -49,10 +49,7 @@
                     detailData = data.data[0];
                     showDetail = true;
 
-                    title =
-                        capitalize(detailData.nama) +
-                        " - " +
-                        config.school.name;
+                    title = capitalize(detailData.nama) + " - Cek Kelulusan";
                 } else showDetail = false;
             })
             .catch(function () {

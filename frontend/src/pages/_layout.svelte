@@ -5,6 +5,9 @@
         afterPageLoad,
     } from "@roxi/routify";
 
+    import config from "./../../config.js";
+    let whatsapp = config.school.contact.whatsapp;
+
     import Navbar from "./../components/Navbar.svelte";
     import Footer from "./../components/Footer.svelte";
     import Spinner from "./../components/Spinner.svelte";
@@ -42,8 +45,37 @@
     <Footer />
 </div>
 
+<a
+    href="https://api.whatsapp.com/send?phone={whatsapp}&text={encodeURIComponent(
+        "Assalamu'alaikum pak, saya mengalami masalah saat..."
+    )}"
+    class="floating-whatsapp"
+    target="_blank"
+>
+    <i class="fa fa-whatsapp whatsapp-icon" />
+</a>
+
 <style>
     .main-container {
         margin-top: 64px;
+    }
+
+    .floating-whatsapp {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        /* box-shadow: 2px 2px 3px #999; */
+        z-index: 100;
+    }
+
+    .whatsapp-icon {
+        margin-top: 10.5px;
     }
 </style>

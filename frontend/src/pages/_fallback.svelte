@@ -1,9 +1,7 @@
 <script>
     import { url, metatags } from "@roxi/routify";
-    import config from "./../../config.js";
 
-    let schoolName = config.school.name;
-    $: metatags.title = "Page Not Found - " + schoolName;
+    $: metatags.title = "Page Not Found - Cek Kelulusan";
 </script>
 
 <main class="mb-auto">

@@ -6,7 +6,7 @@
     } from "@roxi/routify";
 
     import config from "./../../config.js";
-    let whatsapp = config.school.contact.whatsapp;
+    let { whatsapp } = config.school.contact;
 
     import Navbar from "./../components/Navbar.svelte";
     import Footer from "./../components/Footer.svelte";
@@ -47,7 +47,7 @@
 
 <a
     href="https://api.whatsapp.com/send?phone={whatsapp}&text={encodeURIComponent(
-        "Assalamu'alaikum pak, saya mengalami masalah saat..."
+        "Assalamu'alaikum pak, maaf mengganggu waktunya, saya ... dari kelas ..., saya mengalami masalah saat ..."
     )}"
     class="floating-whatsapp"
     target="_blank"

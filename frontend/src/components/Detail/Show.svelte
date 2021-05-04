@@ -25,7 +25,7 @@
         <div class="{statusClass} shadow overflow-hidden sm:rounded-lg">
             <div class="px-4 py-5 sm:px-6">
                 <h3 class="text-xl font-medium text-gray-900">
-                    Anda dinyatakan <span class="font-extrabold">{status}</span>
+                    Kamu dinyatakan <span class="font-extrabold">{status}</span>
                 </h3>
                 <p class="mt-1 max-w-2xl text-sm text-gray-900">
                     oleh satuan pendidikan {config.school.name} tahun pelajaran {schoolYear}.

@@ -110,7 +110,7 @@
                                         <p
                                             class="text-base font-medium text-gray-900"
                                         >
-                                            Phone
+                                            Telepon
                                         </p>
                                         <p class="mt-1 text-sm text-gray-500">
                                             {config.school.contact.phone}

@@ -68,8 +68,9 @@
         </div>
         <div class="text-sm mt-4 text-center">
             &copy; {year}
-            {config.school.name}.
-            <br />
+            <a href={config.school.website} target="_blank"
+                >{config.school.name}</a
+            >.<br />
             All Rights Reserved.
         </div>
     </div>

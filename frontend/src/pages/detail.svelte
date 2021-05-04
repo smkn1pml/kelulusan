@@ -1,9 +1,8 @@
 <script>
-    import { metatags, params } from "@roxi/routify";
+    import { goto, metatags, params } from "@roxi/routify";
     import axios from "axios";
     import FormData from "form-data";
     import config from "./../../config.js";
-    import Alert from "./../components/Alert.svelte";
     import Fallback from "./_fallback.svelte";
 
     import Skeleton from "./../components/Detail/Skeleton.svelte";
@@ -14,7 +13,6 @@
 
     $: metatags.title = title;
     $: skeletonDetail = true;
-    $: showError = false;
     $: showDetail = true;
     $: detailData = {};
 
@@ -50,22 +48,23 @@
                     showDetail = true;
 
                     title = capitalize(detailData.nama) + " - Cek Kelulusan";
-                } else showDetail = false;
+                } else {
+                    detailData = {};
+                    showDetail = false;
+
+                    $goto("/", { error: "1" });
+                }
             })
             .catch(function () {
                 skeletonDetail = false;
 
-                showError = true;
                 detailData = {};
                 showDetail = false;
+
+                $goto("/", { error: "2" });
             });
     }
 </script>
-
-<Alert bind:showAlert={showError} alertTitle="Terjadi Kesalahan">
-    Silahkan hubungi administrator melalui halaman kontak, laporkan terkait
-    masalah ini.
-</Alert>
 
 {#if nisn && showDetail}
     <main class="mb-auto">

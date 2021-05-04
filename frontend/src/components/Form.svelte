@@ -38,7 +38,7 @@
                     <div class="col-span-6">
                         <label
                             for="student_number"
-                            class="block text-base font-light text-gray-700"
+                            class="block text-base font-normal text-gray-700"
                         >
                             Nomor Induk Siswa Nasional
                         </label>

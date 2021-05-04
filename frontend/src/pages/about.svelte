@@ -36,10 +36,10 @@
                             <p
                                 class="mt-2 mb-3 max-w-2xl text-sm text-gray-500"
                             >
-                                Untuk informasi lebih lanjut mengenai aplikasi
-                                ini, silahkan kunjungi repositori melalui tautan
-                                yang tertera dibawah ini. Kamu bisa beri
-                                bintang, Fork repositori tersebut, dan
+                                Untuk informasi lebih lanjut mengenai project
+                                aplikasi ini, silahkan kunjungi repositori
+                                melalui icon yang ada di bawah ini. Kamu bisa
+                                beri bintang, fork repositori tersebut, ataupun
                                 kembangkan lagi jika dibutuhkan.
                             </p>
                             <a

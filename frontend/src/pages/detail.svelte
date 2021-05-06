@@ -4,6 +4,7 @@
     import FormData from "form-data";
     import config from "./../../config.js";
     import Fallback from "./_fallback.svelte";
+    import Appeal from "./../components/Appeal.svelte";
 
     import Skeleton from "./../components/Detail/Skeleton.svelte";
     import Detail from "./../components/Detail/Show.svelte";
@@ -71,6 +72,15 @@
         {#if skeletonDetail}
             <Skeleton />
         {:else}
+            {#if detailData.status === "LULUS"}
+                <Appeal appealTitle="Himbauan" showAppeal="true">
+                    Tetap patuhi protokol kesehatan, pakai masker, cuci tangan
+                    dan selalu menjaga jarak, serta dihimbau kepada seluruh
+                    siswa agar tidak perlu merayakan kelulusan dengan berkerumun
+                    atau mengadakan konvoi dalam bentuk apapun.
+                </Appeal>
+            {/if}
+
             <Detail {...detailData} />
         {/if}
     </main>

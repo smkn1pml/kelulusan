@@ -25,7 +25,6 @@ function doPost(e) {
             "ortu",
             "nisn",
             "status",
-            "pk",
             "skl"
         ]
         var allData = sheet.getDataRange()
